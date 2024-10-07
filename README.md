@@ -22,7 +22,7 @@ This game combines both of these passions, allowing users to learn about differe
 4. Enjoy the sound effects and track your score!
 
 ## Live Demo
-You can play the game [here]().
+You can play the game [here](https://Noobler28.github.io/Guess-The-Shark).
 
 ## Contact
 If you have any questions or feedback, feel free to reach out to me!
