@@ -1,0 +1,171 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Background Gradient */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+    background-size: 400% 400%;
+    animation: backgroundAnimation 15s ease infinite;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Home Container Styles */
+.home-container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Logo Styles */
+.logo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 2.5em;
+    color: #00796b;
+    margin-bottom: 20px;
+    animation: slideIn 0.5s ease-in;
+}
+
+/* Button Styles */
+.start-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #00796b;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    margin-top: 20px;
+}
+
+.start-button:hover {
+    background-color: #004d40;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Background Animation */
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Game Container Styles */
+.game-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Styles */
+#guess-input {
+    padding: 10px;
+    width: calc(100% - 24px);
+    border: 1px solid #00796b;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+/* Button Styles */
+#submit-guess {
+    padding: 10px 20px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+#submit-guess:hover {
+    background-color: #004d40;
+}
+
+/* Shark Image Styles */
+.shark-image {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+/* Score Container Styles */
+.score-container {
+    margin-top: 20px;
+}
+
+/* Leaderboard Styles */
+.leaderboard {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard h2 {
+    margin-bottom: 15px;
+    color: #00796b;
+}
+
+#leaderboard-list {
+    list-style: none;
+    padding: 0;
+}
+
+#leaderboard-list li {
+    margin: 5px 0;
+    font-size: 18px;
+    color: #555;
+}
+
+/* Shark Image Styles */
+.shark-image {
+    width: 300px; /* Fixed width */
+    height: 200px; /* Fixed height */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    margin: 20px 0;
+}

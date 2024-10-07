@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Playing Guess the Shark!</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="home-container">
+        <h1>Thank You for Playing Guess the Shark!</h1>
+        <img src="images/logo.png" alt="Game Logo" class="logo">
+        
+        <div class="score-container">
+            <h2 id="final-score"></h2>
+            <a href="home.html" class="start-button">Play Again</a>
+        </div>
+
+        <!-- New Score Sharing Section -->
+        <div class="score-sharing">
+            <h3 id="share-message"></h3>
+            <p>Copy the message above and share it with your friends!</p>
+        </div>
+
+        <!-- Leaderboard Section -->
+        <div class="leaderboard">
+            <h2>Leaderboard</h2>
+            <ul id="leaderboard-list"></ul>
+        </div>
+    </div>
+
+    <script>
+        // Get score from URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const score = params.get('score');
+
+        // Display final score
+        const finalScoreText = `You guessed ${score}% correct!`;
+        document.getElementById('final-score').innerText = finalScoreText;
+
+        // Create share message (no URL)
+        const shareMessage = `I just scored ${score}% on Guess the Shark!`;
+        document.getElementById('share-message').innerText = shareMessage;
+
+        // Leaderboard Logic
+        function updateLeaderboard(playerName, playerScore) {
+            // Get current leaderboard from local storage
+            let leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+
+            // Add new score
+            leaderboard.push({ name: playerName, score: playerScore });
+            // Sort by score descending
+            leaderboard.sort((a, b) => b.score - a.score);
+            // Limit to top 5 scores
+            leaderboard = leaderboard.slice(0, 5);
+
+            // Save updated leaderboard to local storage
+            localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+
+            // Update the leaderboard display
+            displayLeaderboard();
+        }
+
+        function displayLeaderboard() {
+            const leaderboardList = document.getElementById('leaderboard-list');
+            leaderboardList.innerHTML = ''; // Clear existing leaderboard
+
+            const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+
+            leaderboard.forEach(entry => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${entry.name}: ${entry.score}%`;
+                leaderboardList.appendChild(listItem);
+            });
+        }
+
+        // Prompt for player name and update leaderboard
+        const playerName = prompt("Please enter your name:");
+        if (playerName) {
+            updateLeaderboard(playerName, score);
+        }
+
+        // Display the leaderboard on page load
+        displayLeaderboard();
+    </script>
+</body>
+</html>
