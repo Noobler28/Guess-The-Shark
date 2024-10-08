@@ -18,15 +18,15 @@
     <script>
         const sharks = [
             { name: "Angel Shark", image: "images/angel_shark.jpg" },
-   	    { name: "Basking Shark", image: "images/basking_shark.jpg" },
-   	    { name: "Blacknose Shark", image: "images/blacknose.jpg"},
-    	    { name: "Blacktip Reef Shark", image: "images/blacktip_reef.jpg" },
-  	    { name: "Blue Shark", image: "images/blue_shark.jpg" },
- 	    { name: "Bramble Shark", image: "images/bramble_shark.jpg" },
- 	    { name: "Brown shyshark", image: "images/brown_shyshark.jpg" },
-	    { name: "Bull Shark", image: "images/bull_shark.jpg" },
- 	    { name: "Carpet Shark", image: "images/carpet_shark.jpg" },
-  	    { name: "Cookie Cutter Shark", image: "images/cookie_shark.jpg" },
+            { name: "Basking Shark", image: "images/basking_shark.jpg" },
+            { name: "Blacknose Shark", image: "images/blacknose.jpg"},
+            { name: "Blacktip Reef Shark", image: "images/blacktip_reef.jpg" },
+            { name: "Blue Shark", image: "images/blue_shark.jpg" },
+            { name: "Bramble Shark", image: "images/bramble_shark.jpg" },
+            { name: "Brown shyshark", image: "images/brown_shyshark.jpg" },
+            { name: "Bull Shark", image: "images/bull_shark.jpg" },
+            { name: "Carpet Shark", image: "images/carpet_shark.jpg" },
+            { name: "Cookie Cutter Shark", image: "images/cookie_shark.jpg" },
             { name: "Copper Shark", image: "images/copper_shark.jpg" },
             { name: "Caribbean Reef Shark", image: "images/creef_shark.jpg" },
             { name: "Crocodile Shark", image: "images/crocodile_shark.jpg" },
@@ -69,12 +69,12 @@
             { name: "Zebra Shark", image: "images/zebra_shark.jpg" }
         ];
 
-         let currentSharkIndex = 0;
-         let correctGuesses = 0;
+        let currentSharkIndex = 0;
+        let correctGuesses = 0;
 
-	// Load sound effects
-	const correctSound = new Audio('sounds/correct.mp3');
-	const wrongSound = new Audio('sounds/wrong.mp3');
+        // Load sound effects
+        const correctSound = new Audio('sounds/correct.mp3');
+        const wrongSound = new Audio('sounds/wrong.mp3');
 
         // Shuffle function to randomize the order of sharks
         function shuffle(array) {
@@ -97,12 +97,14 @@
             const guess = document.getElementById('guess-input').value.trim();
             const correctSharkName = sharks[currentSharkIndex].name;
 
-            if (guess.toLowerCase() === correctSharkName.toLowerCase()) {
+            // Check for correct guess (case insensitive) or partial match
+            if (guess.toLowerCase() === correctSharkName.toLowerCase() || 
+                correctSharkName.toLowerCase().startsWith(guess.toLowerCase())) {
                 correctGuesses++;
-		correctSound.play();
+                correctSound.play();
                 document.getElementById('result').innerText = "Correct!";
             } else {
-		wrongSound.play();
+                wrongSound.play();
                 document.getElementById('result').innerText = `Unlucky! Maybe you will have better luck on this one.`;
             }
 
