@@ -128,7 +128,11 @@
         window.location.href = `end.html?score=${finalScore.toFixed(0)}`;
     }
 
-    document.getElementById('submit-guess').addEventListener('click', checkGuess);
-
-    // Start the game by displaying the first shark
-    displayShark();
+    // Start the game when the DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('submit-guess').addEventListener('click', checkGuess);
+        displayShark(); // Display the first shark
+    });
+    </script>
+</body>
+</html>
