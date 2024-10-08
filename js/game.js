@@ -65,8 +65,8 @@ let score = 0;
 
 // Function to show the next shark
 function showNextShark() {
-    const sharkImageElement = document.getElementById('shark-image');
-    sharkImageElement.src = sharks[currentSharkIndex].image;
+    const sharkImage = document.getElementById('shark-image');
+    sharkImage.src = sharks[currentSharkIndex].image;
     document.getElementById('guess-input').value = ''; // Clear input field for new guess
 }
 
@@ -98,7 +98,6 @@ function checkGuess() {
 // Function to end the game
 function endGame() {
     alert(`Game Over! Your score is ${score} out of ${sharks.length}.`);
-    // You can add functionality to save the score or display it in a leaderboard
 }
 
 // Initialize the game
