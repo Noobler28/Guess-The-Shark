@@ -79,9 +79,14 @@ function showNextShark() {
 // Function to check the user's guess
 function checkGuess() {
     const guess = document.getElementById('guess-input').value.toLowerCase();
-    const currentShark = sharks[currentSharkIndex].name.toLowerCase();
+    const currentShark = sharks[currentSharkIndex];
 
-    if (guess === currentShark) {
+    // Normalize the current shark name
+    const currentSharkName = currentShark.name.toLowerCase();
+    const allAcceptableNames = [currentSharkName, ...currentShark.aliases.map(alias => alias.toLowerCase())];
+
+    // Check if the guess matches the current shark name or any of its aliases
+    if (allAcceptableNames.includes(guess)) {
         score += 1; // Increment score for correct guess
         correctSound.play(); // Play correct sound
         alert('Correct!'); // Show correct message
