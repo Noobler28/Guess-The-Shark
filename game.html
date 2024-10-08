@@ -99,8 +99,10 @@
 
             if (guess.toLowerCase() === correctSharkName.toLowerCase()) {
                 correctGuesses++;
+		correctSound.play();
                 document.getElementById('result').innerText = "Correct!";
             } else {
+		wrongSound.play();
                 document.getElementById('result').innerText = `Unlucky! Maybe you will have better luck on this one.`;
             }
 
