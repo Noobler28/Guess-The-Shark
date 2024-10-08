@@ -72,6 +72,10 @@
          let currentSharkIndex = 0;
          let correctGuesses = 0;
 
+	// Load sound effects
+	const correctSound = new Audio('sounds/correct.mp3');
+	const wrongSound = new Audio('sounds/wrong.mp3');
+
         // Shuffle function to randomize the order of sharks
         function shuffle(array) {
             for (let i = array.length - 1; i > 0; i--) {
