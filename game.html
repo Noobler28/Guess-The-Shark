@@ -67,72 +67,69 @@
         { name: "Whale Shark", image: "images/whale_shark.jpg", aliases: ["whale"] },
         { name: "Wobbegong Shark", image: "images/wobbegong_shark.jpg", aliases: ["wobbegong"] },
         { name: "Zebra Shark", image: "images/zebra_shark.jpg", aliases: ["zebra"] }
-        ];
+    ];
 
-        let currentSharkIndex = 0;
-        let correctGuesses = 0;
+    let currentSharkIndex = 0;
+    let correctGuesses = 0;
 
-        // Load sound effects
-        const correctSound = new Audio('sounds/correct.mp3');
-        const wrongSound = new Audio('sounds/wrong.mp3');
+    // Load sound effects
+    const correctSound = new Audio('sounds/correct.mp3');
+    const wrongSound = new Audio('sounds/wrong.mp3');
 
-        // Shuffle function to randomize the order of sharks
-        function shuffle(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]]; // Swap elements
-            }
-            return array;
+    // Shuffle function to randomize the order of sharks
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+        }
+        return array;
+    }
+
+    // Shuffle the sharks array when the game starts
+    shuffle(sharks);
+
+    function displayShark() {
+        const shark = sharks[currentSharkIndex];
+        document.getElementById('shark-image').src = shark.image;
+        document.getElementById('result').innerText = ''; // Clear the previous result
+    }
+
+    function checkGuess() {
+        const guess = document.getElementById('guess-input').value.toLowerCase();
+        const currentShark = sharks[currentSharkIndex];
+        const currentSharkName = currentShark.name.toLowerCase();
+        const allAcceptableNames = [currentSharkName, ...currentShark.aliases.map(alias => alias.toLowerCase())];
+
+        // Check if the guess matches the current shark name or any of its aliases
+        if (allAcceptableNames.includes(guess)) {
+            correctGuesses++; // Increment correct guesses
+            correctSound.play(); // Play correct sound
+            document.getElementById('result').innerText = 'Correct!'; // Show correct message
+        } else {
+            wrongSound.play(); // Play wrong sound
+            document.getElementById('result').innerText = 'Unlucky, maybe you will have better luck on this one!'; // Show wrong message
         }
 
-        // Shuffle the sharks array when the game starts
-        shuffle(sharks);
+        // Clear the input field
+        document.getElementById('guess-input').value = '';
 
-        function displayShark() {
-            const shark = sharks[currentSharkIndex];
-            document.getElementById('shark-image').src = shark.image;
+        // Move to the next shark
+        currentSharkIndex++;
+
+        if (currentSharkIndex < sharks.length) {
+            displayShark();
+        } else {
+            endGame();
         }
+    }
 
-        function checkGuess() {
-            const guess = document.getElementById('guess-input').value.toLowerCase();
-            const currentShark = sharks[currentSharkIndex];
-            // Normalize the current shark name and include aliases
-            const currentSharkName = currentShark.name.toLowerCase();
-            const allAcceptableNames = [currentSharkName, ...currentShark.aliases.map(alias => alias.toLowerCase())];
+    function endGame() {
+        const finalScore = (correctGuesses / sharks.length) * 100; // Calculate score
+        window.location.href = `end.html?score=${finalScore.toFixed(0)}`;
+    }
 
-            // Check if the guess matches the current shark name or any of its aliases
-            if (allAcceptableNames.includes(guess)) {
-                score += 1; // Increment score for correct guess
-                correctSound.play(); // Play correct sound
-                alert('Correct!'); // Show correct message
-                currentSharkIndex++; // Move to the next shark
-                if (currentSharkIndex < sharks.length) {
-                    showNextShark();
-                } else {
-                    endGame();
-                }
-            } else {
-                wrongSound.play(); // Play wrong sound
-                alert('Unlucky, maybe you will have better luck on this one!'); // Show wrong message
-            }
+    document.getElementById('submit-guess').addEventListener('click', checkGuess);
 
-            // Move to the next shark
-            currentSharkIndex++;
-            document.getElementById('guess-input').value = '';
-
-            if (currentSharkIndex < sharks.length) {
-                displayShark();
-            } else {
-                // Redirect to end page with score
-                const finalScore = (correctGuesses / sharks.length) * 100; // Calculate score
-                window.location.href = `end.html?score=${finalScore.toFixed(0)}`;
-            }
-        }
-
-        document.getElementById('submit-guess').addEventListener('click', checkGuess);
-
-        // Start the game by displaying the first shark
-        displayShark();
-    </script>
-</body>
-</html>
+    // Start the game by displaying the first shark
+    displayShark();
+</script>
