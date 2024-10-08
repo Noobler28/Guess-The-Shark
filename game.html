@@ -97,12 +97,6 @@
             const guess = document.getElementById('guess-input').value.trim();
             const correctSharkName = sharks[currentSharkIndex].name;
 
-            // Check if guess is empty or contains only spaces
-            if (guess.length === "" ) {
-                document.getElementById('result').innerText = "Please enter a guess.";
-                return; // Exit if guess is empty
-            }
-
             // Check for exact match of the shark's name
             if (guess.toLowerCase() === correctSharkName.toLowerCase()) {
                 correctGuesses++;
