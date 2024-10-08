@@ -1,54 +1,54 @@
 const sharks = [
-    { name: "Angel Shark", image: "images/angel_shark.jpg", aliases: ["angel", "angel shark"] },
-    { name: "Basking Shark", image: "images/basking_shark.jpg", aliases: ["basking", "basking shark"]},
-    { name: "Blacknose Shark", image: "images/blacknose.jpg", aliases: ["blacknose",  "blacknose shark", "black nose", "black nose shark"]},
-    { name: "Blacktip Reef Shark", image: "images/blacktip_reef.jpg" , aliases: ["",  " shark"]},
-    { name: "Blue Shark", image: "images/blue_shark.jpg" },
-    { name: "Bramble Shark", image: "images/bramble_shark.jpg" },
-    { name: "Brown shyshark", image: "images/brown_shyshark.jpg" },
-    { name: "Bull Shark", image: "images/bull_shark.jpg" },
-    { name: "Carpet Shark", image: "images/carpet_shark.jpg" },
-    { name: "Cookie Cutter Shark", image: "images/cookie_shark.jpg" },
-    { name: "Copper Shark", image: "images/copper_shark.jpg" },
-    { name: "Caribbean Reef Shark", image: "images/creef_shark.jpg" },
-    { name: "Crocodile Shark", image: "images/crocodile_shark.jpg" },
-    { name: "Dogfish", image: "images/dogfish_shark.jpg" },
-    { name: "Dusky Shark", image: "images/dusky_shark.jpg" },
-    { name: "Epaulette Shark", image: "images/epaulette_shark.jpg" },
-    { name: "Frilled Shark", image: "images/frilled_shark.jpg" },
-    { name: "Galapogos Shark", image: "images/galapogos_shark.jpg" },
-    { name: "Goblin Shark", image: "images/goblin_shark.jpg" },
-    { name: "Greenland Shark", image: "images/greenland_shark.jpg" },
-    { name: "Grey Reef Shark", image: "images/greyreef_shark.jpg" },
-    { name: "Gulper Shark", image: "images/gulper_shark.jpg" },
-    { name: "Great White Shark", image: "images/great_white.jpg" },
-    { name: "Hammerhead Shark", image: "images/hammerhead.jpg" },
-    { name: "Horn Shark", image: "images/horn_shark.jpg" },
-    { name: "Kitefin Shark", image: "images/kitefin_shark.jpg" },
-    { name: "Lantern Shark", image: "images/lantern_shark.jpg" },
-    { name: "Lemon Shark", image: "images/lemon_shark.jpg" },
-    { name: "Leopard Shark", image: "images/leopard_shark.jpg" },
-    { name: "Mako Shark", image: "images/mako_shark.jpg" },
-    { name: "Megamouth Shark", image: "images/megamouth_shark.jpg" },
-    { name: "Milk Shark", image: "images/milk_shark.jpg" },
-    { name: "Nurse Shark", image: "images/nurse_shark.jpg" },
-    { name: "Oceanic White Tip Shark", image: "images/oceanic_shark.jpg" },
-    { name: "Porbeagle Shark", image: "images/porbeagle_shark.jpg" },
-    { name: "Pygmy Shark", image: "images/pygmy_shark.jpg" },
-    { name: "Pyjama Shark", image: "images/pyjama_shark.jpg" },
-    { name: "Salmon Shark", image: "images/salmon_shark.jpg" },
-    { name: "Sand Tiger Shark", image: "images/sandtiger_shark.jpg" },
-    { name: "Saw Shark", image: "images/saw_shark.jpg" },
-    { name: "Sharpnose Shark", image: "images/sharpnose_shark.jpg" },
-    { name: "Silky Shark", image: "images/silky_shark.jpg" },
-    { name: "Silvertip Shark", image: "images/silvertip_shark.jpg" },
-    { name: "Smoothhound Shark", image: "images/smoothhound.jpg" },
-    { name: "Spinner Shark", image: "images/spinner_shark.jpg" },
-    { name: "Thresher Shark", image: "images/thresher_shark.jpg" },
-    { name: "Tiger Shark", image: "images/tiger_shark.jpg" },
-    { name: "Whale Shark", image: "images/whale_shark.jpg" },
-    { name: "Wobbegong Shark", image: "images/wobbegong_shark.jpg" },
-    { name: "Zebra Shark", image: "images/zebra_shark.jpg" }
+    { name: "Angel Shark", image: "images/angel_shark.jpg", aliases: ["angel"] },
+    { name: "Basking Shark", image: "images/basking_shark.jpg", aliases: [] },
+    { name: "Blacknose Shark", image: "images/blacknose.jpg", aliases: [] },
+    { name: "Blacktip Reef Shark", image: "images/blacktip_reef.jpg", aliases: [] },
+    { name: "Blue Shark", image: "images/blue_shark.jpg", aliases: [] },
+    { name: "Bramble Shark", image: "images/bramble_shark.jpg", aliases: [] },
+    { name: "Brown Shyshark", image: "images/brown_shyshark.jpg", aliases: [] },
+    { name: "Bull Shark", image: "images/bull_shark.jpg", aliases: [] },
+    { name: "Carpet Shark", image: "images/carpet_shark.jpg", aliases: [] },
+    { name: "Cookie Cutter Shark", image: "images/cookie_shark.jpg", aliases: [] },
+    { name: "Copper Shark", image: "images/copper_shark.jpg", aliases: [] },
+    { name: "Caribbean Reef Shark", image: "images/creef_shark.jpg", aliases: [] },
+    { name: "Crocodile Shark", image: "images/crocodile_shark.jpg", aliases: [] },
+    { name: "Dogfish", image: "images/dogfish_shark.jpg", aliases: [] },
+    { name: "Dusky Shark", image: "images/dusky_shark.jpg", aliases: [] },
+    { name: "Epaulette Shark", image: "images/epaulette_shark.jpg", aliases: [] },
+    { name: "Frilled Shark", image: "images/frilled_shark.jpg", aliases: [] },
+    { name: "Galapogos Shark", image: "images/galapogos_shark.jpg", aliases: [] },
+    { name: "Goblin Shark", image: "images/goblin_shark.jpg", aliases: [] },
+    { name: "Greenland Shark", image: "images/greenland_shark.jpg", aliases: [] },
+    { name: "Grey Reef Shark", image: "images/greyreef_shark.jpg", aliases: [] },
+    { name: "Gulper Shark", image: "images/gulper_shark.jpg", aliases: [] },
+    { name: "Great White Shark", image: "images/great_white.jpg", aliases: [] },
+    { name: "Hammerhead Shark", image: "images/hammerhead.jpg", aliases: [] },
+    { name: "Horn Shark", image: "images/horn_shark.jpg", aliases: [] },
+    { name: "Kitefin Shark", image: "images/kitefin_shark.jpg", aliases: [] },
+    { name: "Lantern Shark", image: "images/lantern_shark.jpg", aliases: [] },
+    { name: "Lemon Shark", image: "images/lemon_shark.jpg", aliases: [] },
+    { name: "Leopard Shark", image: "images/leopard_shark.jpg", aliases: [] },
+    { name: "Mako Shark", image: "images/mako_shark.jpg", aliases: [] },
+    { name: "Megamouth Shark", image: "images/megamouth_shark.jpg", aliases: [] },
+    { name: "Milk Shark", image: "images/milk_shark.jpg", aliases: [] },
+    { name: "Nurse Shark", image: "images/nurse_shark.jpg", aliases: [] },
+    { name: "Oceanic White Tip Shark", image: "images/oceanic_shark.jpg", aliases: [] },
+    { name: "Porbeagle Shark", image: "images/porbeagle_shark.jpg", aliases: [] },
+    { name: "Pygmy Shark", image: "images/pygmy_shark.jpg", aliases: [] },
+    { name: "Pyjama Shark", image: "images/pyjama_shark.jpg", aliases: [] },
+    { name: "Salmon Shark", image: "images/salmon_shark.jpg", aliases: [] },
+    { name: "Sand Tiger Shark", image: "images/sandtiger_shark.jpg", aliases: [] },
+    { name: "Saw Shark", image: "images/saw_shark.jpg", aliases: [] },
+    { name: "Sharpnose Shark", image: "images/sharpnose_shark.jpg", aliases: [] },
+    { name: "Silky Shark", image: "images/silky_shark.jpg", aliases: [] },
+    { name: "Silvertip Shark", image: "images/silvertip_shark.jpg", aliases: [] },
+    { name: "Smoothhound Shark", image: "images/smoothhound.jpg", aliases: [] },
+    { name: "Spinner Shark", image: "images/spinner_shark.jpg", aliases: [] },
+    { name: "Thresher Shark", image: "images/thresher_shark.jpg", aliases: [] },
+    { name: "Tiger Shark", image: "images/tiger_shark.jpg", aliases: [] },
+    { name: "Whale Shark", image: "images/whale_shark.jpg", aliases: [] },
+    { name: "Wobbegong Shark", image: "images/wobbegong_shark.jpg", aliases: [] },
+    { name: "Zebra Shark", image: "images/zebra_shark.jpg", aliases: [] }
 ];
 
 // Shuffle the sharks array for random order
@@ -67,9 +67,6 @@ let score = 0;
 const correctSound = new Audio('sounds/correct.mp3');
 const wrongSound = new Audio('sounds/wrong.mp3');
 
-function playSound() {
-    sound.Play();
-
 // Function to show the next shark
 function showNextShark() {
     const sharkImageElement = document.getElementById('shark-image');
@@ -81,7 +78,7 @@ function checkGuess() {
     const guess = document.getElementById('guess-input').value.toLowerCase();
     const currentShark = sharks[currentSharkIndex];
 
-    // Normalize the current shark name
+    // Normalize the current shark name and include aliases
     const currentSharkName = currentShark.name.toLowerCase();
     const allAcceptableNames = [currentSharkName, ...currentShark.aliases.map(alias => alias.toLowerCase())];
 
