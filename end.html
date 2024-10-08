@@ -32,7 +32,7 @@
     <script>
         // Get score from URL parameters
         const params = new URLSearchParams(window.location.search);
-        const score = params.get('score');
+        const score = parseInt(params.get('score'), 10);
 
         // Display final score
         const finalScoreText = `You guessed ${score}% correct!`;
@@ -42,39 +42,40 @@
         const shareMessage = `I just scored ${score}% on Guess the Shark! play it here: https://noobler28.github.io/Guess-The-Shark/`;
         document.getElementById('share-message').innerText = shareMessage;
 
-        // Fetch leaderboard data from the server and display it
-        function fetchLeaderboard() {
-            fetch('/leaderboard')
-                .then(response => response.json())
-                .then(leaderboard => {
-                    const leaderboardList = document.getElementById('leaderboard-list');
-                    leaderboardList.innerHTML = ''; // Clear any previous entries
-                    leaderboard.forEach(entry => {
-                        const listItem = document.createElement('li');
-                        listItem.textContent = `${entry.name}: ${entry.score}%`;
-                        leaderboardList.appendChild(listItem);
-                    });
-                })
-                .catch(err => console.error('Error fetching leaderboard:', err));
+        // Leaderboard Logic
+        function updateLeaderboard(playerName, playerScore) {
+            // Get current leaderboard from local storage
+            let leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+
+            // Add new score
+            leaderboard.push({ name: playerName, score: playerScore });
+            // Sort by score descending
+            leaderboard.sort((a, b) => b.score - a.score);
+            // Limit to top 5 scores
+            leaderboard = leaderboard.slice(0, 5);
+
+            // Save updated leaderboard to local storage
+            localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+
+            // Update the leaderboard display
+            displayLeaderboard();
         }
 
-        // Send the player's name and score to the server to update the leaderboard
-        function updateLeaderboard(playerName, playerScore) {
-            const data = { name: playerName, score: playerScore };
+        function displayLeaderboard() {
+            const leaderboardList = document.getElementById('leaderboard-list');
 
-            fetch('/leaderboard', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(message => {
-                console.log(message);
-                fetchLeaderboard(); // Refresh leaderboard after updating
-            })
-            .catch(err => console.error('Error updating leaderboard:', err));
+            // Clear existing leaderboard display
+            leaderboardList.innerHTML = '';
+
+            // Get leaderboard from local storage
+            const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+
+            // Display leaderboard entries
+            leaderboard.forEach(entry => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${entry.name}: ${entry.score}%`;
+                leaderboardList.appendChild(listItem);
+            });
         }
 
         // Prompt for player name and update leaderboard
@@ -83,8 +84,8 @@
             updateLeaderboard(playerName, score);
         }
 
-        // Fetch and display the leaderboard on page load
-        fetchLeaderboard();
+        // Display the leaderboard on page load
+        displayLeaderboard();
     </script>
 </body>
-</html>
+</html> 
