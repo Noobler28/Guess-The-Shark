@@ -99,9 +99,32 @@ function checkGuess() {
 // Function to end the game
 function endGame() {
     alert(`Game Over! Your score is ${score} out of ${sharks.length}.`);
+
+    // Prompt for player name and update leaderboard
+    const playerName = prompt("Please enter your name:");
+    if (playerName) {
+        updateLeaderboard(playerName, (score / sharks.length * 100).toFixed(0)); // Update leaderboard with the player's score
+    }
+
     // Redirect to end page with score in the URL
     window.location.href = `end.html?score=${(score / sharks.length * 100).toFixed(0)}`;
 }
 
 // Initialize the game
 showNextShark();
+
+// Leaderboard Logic
+function updateLeaderboard(playerName, playerScore) {
+    // Get current leaderboard from local storage
+    let leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+
+    // Add new score
+    leaderboard.push({ name: playerName, score: playerScore });
+    // Sort by score descending
+    leaderboard.sort((a, b) => b.score - a.score);
+    // Limit to top 5 scores
+    leaderboard = leaderboard.slice(0, 5);
+
+    // Save updated leaderboard to local storage
+    localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+    }
