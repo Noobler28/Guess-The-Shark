@@ -96,6 +96,9 @@
         function checkGuess() {
             const guess = document.getElementById('guess-input').value.toLowerCase();
             const currentShark = sharks[currentSharkIndex];
+            // Normalize the current shark name and include aliases
+            const currentSharkName = currentShark.name.toLowerCase();
+            const allAcceptableNames = [currentSharkName, ...currentShark.aliases.map(alias => alias.toLowerCase())];
 
             // Check if the guess matches the current shark name or any of its aliases
             if (allAcceptableNames.includes(guess)) {
