@@ -65,9 +65,13 @@ let score = 0;
 
 // Function to show the next shark
 function showNextShark() {
-    const sharkImage = document.getElementById('shark-image');
-    sharkImage.src = sharks[currentSharkIndex].image;
-    document.getElementById('guess-input').value = ''; // Clear input field for new guess
+    if (currentSharkIndex < sharks.length) {
+        const sharkImage = document.getElementById('shark-image');
+        sharkImage.src = sharks[currentSharkIndex].image;
+        document.getElementById('guess-input').value = ''; // Clear input field for new guess
+    } else {
+        endGame(); // If no more sharks, end the game
+    }
 }
 
 // Function to check the user's guess
@@ -80,18 +84,13 @@ function checkGuess() {
 
     if (allAcceptableNames.includes(guess)) {
         score += 1; // Increment score for correct guess
-        alert('Correct!');
-        currentSharkIndex++; // Move to the next shark
-
-        if (currentSharkIndex < sharks.length) {
-            showNextShark();
-        } else {
-            endGame();
-        }
+        alert('Correct!'); // Alert for correct guess
     } else {
-        alert('Incorrect! Try again.');
+        alert(`Incorrect! The correct answer was: ${currentShark.name}`); // Alert for incorrect guess
     }
 
+    currentSharkIndex++; // Move to the next shark
+    showNextShark(); // Show the next shark
     document.getElementById('score').innerText = `Score: ${score}`; // Update score display
 }
 
