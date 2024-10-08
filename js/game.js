@@ -67,6 +67,9 @@ let score = 0;
 const correctSound = new Audio('sounds/correct.mp3');
 const wrongSound = new Audio('sounds/wrong.mp3');
 
+function playSound() {
+    sound.Play();
+
 // Function to show the next shark
 function showNextShark() {
     const sharkImageElement = document.getElementById('shark-image');
