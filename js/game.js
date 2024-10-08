@@ -77,8 +77,7 @@ function showNextShark() {
 function checkGuess() {
     const guess = document.getElementById('guess-input').value.toLowerCase();
     const currentShark = sharks[currentSharkIndex];
-
-    // Normalize the current shark name and include aliases
+    
     const currentSharkName = currentShark.name.toLowerCase();
     const allAcceptableNames = [currentSharkName, ...currentShark.aliases.map(alias => alias.toLowerCase())];
 
@@ -91,7 +90,7 @@ function checkGuess() {
         if (currentSharkIndex < sharks.length) {
             showNextShark();
         } else {
-            endGame();
+            endGame(); // Call end game if all sharks guessed
         }
     } else {
         wrongSound.play(); // Play wrong sound
@@ -105,32 +104,25 @@ function checkGuess() {
 function endGame() {
     alert(`Game Over! Your score is ${score} out of ${sharks.length}.`);
     
-    // Prompt for player name
     const playerName = prompt("Please enter your name:");
     if (playerName) {
-        // Save score to local storage
         updateLeaderboard(playerName, (score / sharks.length * 100).toFixed(0));
     }
 
-    // Redirect to end page
+    // Redirect to end page with score
     window.location.href = `end.html?score=${(score / sharks.length * 100).toFixed(0)}`;
 }
 
 // Function to update leaderboard in Local Storage
 function updateLeaderboard(playerName, playerScore) {
-    // Get current leaderboard from local storage
     let leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
-
-    // Add new score
     leaderboard.push({ name: playerName, score: playerScore });
-    // Sort by score descending
     leaderboard.sort((a, b) => b.score - a.score);
-    // Limit to top 5 scores
-    leaderboard = leaderboard.slice(0, 5);
-
-    // Save updated leaderboard to local storage
+    leaderboard = leaderboard.slice(0, 5); // Limit to top 5 scores
     localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
 }
 
 // Initialize the game
-showNextShark();
+document.addEventListener("DOMContentLoaded", function() {
+    showNextShark(); // Start displaying sharks
+});
