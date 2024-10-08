@@ -1,8 +1,8 @@
 const sharks = [
-    { name: "Angel Shark", image: "images/angel_shark.jpg" },
-    { name: "Basking Shark", image: "images/basking_shark.jpg" },
-    { name: "Blacknose Shark", image: "images/blacknose.jpg"},
-    { name: "Blacktip Reef Shark", image: "images/blacktip_reef.jpg" },
+    { name: "Angel Shark", image: "images/angel_shark.jpg", aliases: ["angel", "angel shark"] },
+    { name: "Basking Shark", image: "images/basking_shark.jpg", aliases: ["basking", "basking shark"]},
+    { name: "Blacknose Shark", image: "images/blacknose.jpg", aliases: ["blacknose",  "blacknose shark", "black nose", "black nose shark"]},
+    { name: "Blacktip Reef Shark", image: "images/blacktip_reef.jpg" , aliases: ["",  " shark"]},
     { name: "Blue Shark", image: "images/blue_shark.jpg" },
     { name: "Bramble Shark", image: "images/bramble_shark.jpg" },
     { name: "Brown shyshark", image: "images/brown_shyshark.jpg" },
