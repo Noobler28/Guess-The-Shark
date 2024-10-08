@@ -94,17 +94,23 @@
         }
 
         function checkGuess() {
-            const guess = document.getElementById('guess-input').value.trim();
-            const correctSharkName = sharks[currentSharkIndex].name;
+            const guess = document.getElementById('guess-input').value.toLowerCase();
+            const currentShark = sharks[currentSharkIndex];
 
-            // Check for exact match of the shark's name
-            if (guess.toLowerCase() === correctSharkName.toLowerCase()) {
-                correctGuesses++;
-                correctSound.play();
-                document.getElementById('result').innerText = "Correct!";
+            // Check if the guess matches the current shark name or any of its aliases
+            if (allAcceptableNames.includes(guess)) {
+                score += 1; // Increment score for correct guess
+                correctSound.play(); // Play correct sound
+                alert('Correct!'); // Show correct message
+                currentSharkIndex++; // Move to the next shark
+                if (currentSharkIndex < sharks.length) {
+                    showNextShark();
+                } else {
+                    endGame();
+                }
             } else {
-                wrongSound.play();
-                document.getElementById('result').innerText = "Unlucky! Maybe you will have better luck on this one.";
+                wrongSound.play(); // Play wrong sound
+                alert('Unlucky, maybe you will have better luck on this one!'); // Show wrong message
             }
 
             // Move to the next shark
