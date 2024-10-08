@@ -97,15 +97,20 @@
             const guess = document.getElementById('guess-input').value.trim();
             const correctSharkName = sharks[currentSharkIndex].name;
 
-            // Check for correct guess (case insensitive) or partial match
-            if (guess.toLowerCase() === correctSharkName.toLowerCase() || 
-                correctSharkName.toLowerCase().startsWith(guess.toLowerCase())) {
+            // Check if guess is empty or contains only spaces
+            if (guess.length === 0) {
+                document.getElementById('result').innerText = "Please enter a guess.";
+                return; // Exit if guess is empty
+            }
+
+            // Check for exact match of the shark's name
+            if (guess.toLowerCase() === correctSharkName.toLowerCase()) {
                 correctGuesses++;
                 correctSound.play();
                 document.getElementById('result').innerText = "Correct!";
             } else {
                 wrongSound.play();
-                document.getElementById('result').innerText = `Unlucky! Maybe you will have better luck on this one.`;
+                document.getElementById('result').innerText = "Unlucky! Maybe you will have better luck on this one.";
             }
 
             // Move to the next shark
