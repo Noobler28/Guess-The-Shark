@@ -38,7 +38,7 @@
         const finalScoreText = `You guessed ${score}% correct!`;
         document.getElementById('final-score').innerText = finalScoreText;
 
-        // Create share message (no URL)
+        // Create share message
         const shareMessage = `I just scored ${score}% on Guess the Shark! play it here: https://noobler28.github.io/Guess-The-Shark/`;
         document.getElementById('share-message').innerText = shareMessage;
 
@@ -63,7 +63,6 @@
 
         function displayLeaderboard() {
             const leaderboardList = document.getElementById('leaderboard-list');
-            leaderboardList.innerHTML = ''; // Clear existing leaderboard
 
             const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
 
