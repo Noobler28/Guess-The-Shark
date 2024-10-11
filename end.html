@@ -3,34 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess the Shark</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Game Over</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Guess the Shark</h1>
-    </header>
-
-    <main>
-        <h2>Your Score: <span id="score">0</span></h2>
-        <button onclick="playAgain()">Play Again</button>
-
-        <h2>Leaderboard</h2>
-        <ul id="leaderboard">
-            <!-- Player scores will go here -->
-        </ul>
-    </main>
-
-    <script>
-        // Load and display score
-        const score = localStorage.getItem('score');
-        document.getElementById('score').innerText = score;
-
-        function playAgain() {
-            window.location.href = "game.html";
-        }
-
-        // Load leaderboard logic here...
-    </script>
+    <h1>Guess the Shark</h1>
+    <h2>Game Over</h2>
+    <p>Your score: <span id="finalScore"></span></p>
+    <a href="index.html">Play Again</a>
 </body>
 </html>
