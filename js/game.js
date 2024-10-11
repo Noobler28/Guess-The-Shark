@@ -58,6 +58,7 @@ let score = 0;
 function startGame() {
     score = 0;
     nextShark();
+    document.getElementById("score").innerText = "Score: " + score;
 }
 
 // Function to load the next shark
@@ -67,17 +68,17 @@ function nextShark() {
     document.getElementById("sharkImage").src = currentShark.image;
 }
 
-// Function to check the guess
-function checkGuess() {
+// Function to handle guess submission
+function submitGuess() {
     const userGuess = document.getElementById("guessInput").value.toLowerCase();
     if (currentShark.aliases.includes(userGuess)) {
         alert("Correct!");
         score++;
-        nextShark();
     } else {
-        alert("Wrong! Try again.");
-        nextShark();
+        alert("Wrong! The correct answer was: " + currentShark.name);
     }
+    document.getElementById("score").innerText = "Score: " + score; // Update score display
+    nextShark(); // Load next shark
     document.getElementById("guessInput").value = ""; // Clear input
 }
 
