@@ -1,48 +1,31 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f0f8ff;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: #0077be;
-    color: white;
-    padding: 20px;
 }
 
 h1 {
-    margin: 0;
-}
-
-main {
-    margin-top: 50px;
+    color: #2c3e50;
 }
 
 img {
     width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border: 5px solid #0077be;
-    margin-bottom: 20px;
+    height: auto;
 }
 
-input[type="text"] {
-    padding: 10px;
-    font-size: 16px;
-    margin-right: 10px;
+input {
+    margin: 10px;
+    padding: 5px;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #0077be;
+    padding: 5px 10px;
+    background-color: #3498db;
     color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #005f8a;
+    background-color: #2980b9;
 }
