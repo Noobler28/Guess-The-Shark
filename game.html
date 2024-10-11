@@ -4,16 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess the Shark</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="game-container">
-        <h1>Guess the Shark!</h1>
-        <img id="shark-image" src="" alt="Shark Image" width="400">
-        <input type="text" id="guess-input" placeholder="Enter your guess...">
-        <button id="guess-button">Submit Guess</button>
-        <p id="score">Score: 0</p>
-    </div>
-    <script src="js/game.js"></script>
+    <header>
+        <h1>Guess the Shark</h1>
+    </header>
+
+    <main>
+        <img id="shark-image" alt="Shark Image" src="">
+        <div>
+            <input type="text" id="guess-input" placeholder="Enter shark name...">
+            <button onclick="submitGuess()">Submit Guess</button>
+        </div>
+        <p id="feedback"></p>
+    </main>
+
+    <script src="game.js"></script>
 </body>
 </html>
