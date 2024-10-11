@@ -51,44 +51,35 @@ const sharks = [
     { name: "Zebra Shark", image: "images/zebra_shark.jpg", aliases: ["zebra"] }
 ];
 
-let currentSharkIndex = -1; // Start before the first shark
+let currentShark;
 let score = 0;
 
-// Function to load a random shark
-function loadShark() {
+// Function to start the game
+function startGame() {
+    score = 0;
+    nextShark();
+}
+
+// Function to load the next shark
+function nextShark() {
     const randomIndex = Math.floor(Math.random() * sharks.length);
-    currentSharkIndex = randomIndex;
-    
-    const shark = sharks[currentSharkIndex];
-    document.getElementById("shark-image").src = shark.image;
+    currentShark = sharks[randomIndex];
+    document.getElementById("sharkImage").src = currentShark.image;
 }
 
-// Function to check the user's guess
-function submitGuess() {
-    const guess = document.getElementById("guess-input").value.trim().toLowerCase();
-    const shark = sharks[currentSharkIndex];
-
-    // Check if the guess matches the shark's name or its aliases
-    if (guess === shark.name.toLowerCase() || shark.aliases.includes(guess)) {
+// Function to check the guess
+function checkGuess() {
+    const userGuess = document.getElementById("guessInput").value.toLowerCase();
+    if (currentShark.aliases.includes(userGuess)) {
+        alert("Correct!");
         score++;
-        document.getElementById("feedback").innerText = "Correct!";
+        nextShark();
     } else {
-        document.getElementById("feedback").innerText = `Wrong! The correct answer was: ${shark.name}`;
+        alert("Wrong! Try again.");
+        nextShark();
     }
-
-    // Move to the next shark after a short delay
-    setTimeout(() => {
-        document.getElementById("feedback").innerText = "";
-        document.getElementById("guess-input").value = "";
-        loadShark();
-    }, 2000);
+    document.getElementById("guessInput").value = ""; // Clear input
 }
 
-// Function to end the game and save the score
-function endGame() {
-    localStorage.setItem('score', score);
-    window.location.href = "end.html";
-}
-
-// Load the first shark when the game page is opened
-loadShark();
+// Start the game when the page loads
+window.onload = startGame;
